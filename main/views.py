@@ -6,3 +6,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Index site")
+
+def login(request):
+    return HttpResponse("Login site")
