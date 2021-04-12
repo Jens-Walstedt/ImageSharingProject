@@ -4,20 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Sharing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %}
+    <title>Image Sharing</title>{% endblock %}
 </head>
 
 <body>
+    {% block navbar%}
     <nav>
         <ul>
-            <a href="views.py">Home</a>
+            <a href="">Home</a>
             <a href="">Login</a>
             <a href="">Register</a>
             <a href="">Browse</a>
+            <input type="search" title="Search"></input>
         </ul>
-        <input type="search"></input>
+
     </nav>
+    {% endblock %} {% block content%}
+    <p>This is content</p> {% endblock%}
 </body>
 
 </html>
