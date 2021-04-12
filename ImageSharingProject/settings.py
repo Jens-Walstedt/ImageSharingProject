@@ -54,7 +54,7 @@ ROOT_URLCONF = 'ImageSharingProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [Path.joinpath(BASE_DIR, "templates")],
+        'DIRS': [Path.joinpath(BASE_DIR, "Templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
