@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "${env:PYTHON_INSTALL_LOC}",
+=======
+    "python.pythonPath": "C:\\Users\\KinMetti\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+>>>>>>> 646f3dc3e01133cef6733bc5812581db30fb4fb3
 }
