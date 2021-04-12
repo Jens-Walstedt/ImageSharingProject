@@ -9,15 +9,18 @@
 </head>
 
 <body>
+    {% block navbar%}
     <nav>
         <ul>
-            <a href="views.py">Home</a>
+            <a href="">Home</a>
             <a href="">Login</a>
             <a href="">Register</a>
             <a href="">Browse</a>
+            <input type="search" title="Search"></input>
         </ul>
-        <input type="search"></input>
+
     </nav>
+    {% endblock %} {% block content%} {% endblock%}
 </body>
 
 </html>
