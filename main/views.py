@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth import login, authenticate
 
 # Create your views here.
 
@@ -7,5 +8,14 @@ from django.http import HttpResponse
 def index(request):
     return render(request,'base.html')
 
-def login(request):
-    return HttpResponse("Login site")
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("/")
+        else:
+            return render(request, "login.html", {"error": "Invalid username and or password", "username": username})
+    return render(request, "login.html", {})
