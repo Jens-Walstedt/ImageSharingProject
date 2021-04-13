@@ -1,5 +1,6 @@
 .nav {
     border-bottom: 1px solid black;
+    background-color: silver;
 }
 
 .nav ol {
@@ -9,4 +10,10 @@
 
 .nav li {
     display: inline-block;
+}
+
+.nav a {
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
 }
