@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %} {%load static%}
+
+    <link rel="stylesheet" type="text/css" href="{%static 'styles.css' %}">
+
     <title>Image Sharing</title>{% endblock %}
 </head>
 
 <body>
     {% block navbar%}
-    <nav style="border-bottom: 1px solid black;">
-        <ol style=" list-style-type: none;
-        padding-left: 0;">
-            <li style="display: inline-block;"><a href="">Home</a></li>
-            <li style="display: inline-block;"><a href="">Login</a></li>
-            <li style="display: inline-block;"><a href="">Register</a></li>
-            <li style="display: inline-block;"><a href="">Browse</a></li>
-            <li style="display: inline-block;"><input type="search" title="Search"></input>
+    <nav class="nav">
+        <ol>
+            <li><a href="">Home</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Register</a></li>
+            <li><a href="">Browse</a></li>
+            <li><input type="search" title="Search"></input>
             </li>
         </ol>
 
