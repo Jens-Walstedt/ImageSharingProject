@@ -1,3 +1,0 @@
-{
-    "python.pythonPath": "${env:PYTHON_INSTALL_LOC}"
-}

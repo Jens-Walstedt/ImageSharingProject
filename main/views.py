@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Index site")
+    return render(request,'base.html')
 
 def login(request):
     return HttpResponse("Login site")
