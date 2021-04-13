@@ -10,14 +10,16 @@
 
 <body>
     {% block navbar%}
-    <nav>
-        <ul>
-            <a href="">Home</a>
-            <a href="">Login</a>
-            <a href="">Register</a>
-            <a href="">Browse</a>
-            <input type="search" title="Search"></input>
-        </ul>
+    <nav style="border-bottom: 1px solid black;">
+        <ol style=" list-style-type: none;
+        padding-left: 0;">
+            <li style="display: inline-block;"><a href="">Home</a></li>
+            <li style="display: inline-block;"><a href="">Login</a></li>
+            <li style="display: inline-block;"><a href="">Register</a></li>
+            <li style="display: inline-block;"><a href="">Browse</a></li>
+            <li style="display: inline-block;"><input type="search" title="Search"></input>
+            </li>
+        </ol>
 
     </nav>
     {% endblock %} {% block content%}
