@@ -27,6 +27,7 @@
     font-family: sans-serif;
     font-size: 16px;
     padding: 14px 16px;
+    border-radius: 5%;
 }
 
 .nav a:hover {
