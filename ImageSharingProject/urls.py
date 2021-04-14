@@ -20,9 +20,8 @@ from main.views import index, login_view
 from registration.views import register_user_view, show_user_view
 
 urlpatterns = [
-    path('', debug.default_urlconf),
     path('admin/', admin.site.urls),
-    path('index/', index),
+    path('', index),
     path('login/', login_view, name="login"),
     path('register/', register_user_view, name="register"),
     path('register/showusers', show_user_view),
