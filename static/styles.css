@@ -11,20 +11,22 @@
 .nav ol {
     list-style-type: none;
     padding-left: 0px;
-    margin: 0px 22px 0px 22px;
+    margin: 0px 14px 0px 16px;
     padding: 11px;
-    display: block;
     width: 100%;
 }
 
 .nav li {
     display: inline-block;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 .nav a {
     color: white;
     font-family: sans-serif;
     font-size: 16px;
+    padding: 14px 16px;
 }
 
 .nav a:hover {
