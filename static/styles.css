@@ -4,16 +4,17 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0px;
-    padding: 0px;
+    padding: 11px;
     display: block;
 }
 
 .nav ol {
     list-style-type: none;
     padding-left: 0px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0px 22px 0px 22px;
+    padding: 11px;
     display: block;
+    width: 100%;
 }
 
 .nav li {
