@@ -1,8 +1,8 @@
 .nav {
     border-bottom: 1px solid black;
     background-color: rgba(77, 74, 74, 0.719);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
     margin: 0px;
     padding: 11px;
     display: block;
