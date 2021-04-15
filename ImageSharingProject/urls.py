@@ -19,6 +19,9 @@ from django.views import debug
 from main.views import index, login_view, logout_view
 from registration.views import register_user_view, show_user_view
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
@@ -26,4 +29,6 @@ urlpatterns = [
     path('logout/', logout_view, name="logout"),
     path('register/', register_user_view, name="register"),
     path('register/showusers', show_user_view),
+    path("images/" , name="logout"),
+    #static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ]
