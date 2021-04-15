@@ -1,13 +1,23 @@
-from django.db import models
-# Create your models here.
+# from django.db import models
+# from django.contrib.auth.models import User
+# # Create your models here.
 
 
-class User(models.Model):
-    UserName = models.CharField(max_length=20, default="user")
-    Password = models.CharField(max_length=50, default="password")
-    Name = models.CharField(max_length=50)
-    LastName = models.CharField(max_length=50)
-    Email = models.CharField(max_length=50, default="abc@mail.com")
+# class UserProfile(models.Model):
+#      user = models.ForeignKey(User, on_delete=models.CASCADE)
+#      bio = models.CharField(max_length=300)
+#      profile_pic = models.foreignKey(null=True)
+    
+#     def __str__(self):
+#         return self.pk
 
-    def __str__(self):
-        return self.UserName
+
+# class ImageItem(models.Model):
+#     userProfileId = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+#     imageId = models.foreignKey(Image, on_delete=models.CASCADE)
+#     imageOwner = models.BooleanField(default=False)
+    
+#     def __str__(self):
+#         return self.pk
+
+   
