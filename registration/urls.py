@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import show_user_view, register_user_view
+from .views import created_user_view, register_user_view
 
 
 urlpatterns = [
-    path("", show_user_view, name="/register/users"),
+    path("success/<int:id>", created_user_view, name="created_user"),
     path("register/", register_user_view, name="register"),
 ]
+
+# Qwerty4321

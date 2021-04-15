@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "register.css" %}">
+{% endblock %}
+
+
 {% block content %}
+    <div class="form">
+    <h1>register a user</h1>
 
-<h1>register a user</h1>
+    <form method="POST" class="form-container">
 
-<form method="POST" >
-
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <input type="submit" value="Save">
-</form>
-
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+        
+    </form>
+    </div>
 
 {% endblock %}

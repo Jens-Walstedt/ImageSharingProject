@@ -1,13 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 
 
-def show_user_view(request):
-    users = User.objects.all()
-    return HttpResponse(users)
+def created_user_view(request, id):
+    user = get_object_or_404(User, pk=id)
+    return HttpResponse(user)
 
 
 def register_user_view(request):
@@ -19,7 +19,7 @@ def register_user_view(request):
             user = authenticate(request, username=form.cleaned_data.get("username"), password=form.cleaned_data.get("password1"))
             if user is not None:
                 login(request, user)
-                return redirect("/register/users")
+                return redirect("registration/success/" + str(user.pk))
             else:
                 return render(request, "register.html", {"form": form})
     
