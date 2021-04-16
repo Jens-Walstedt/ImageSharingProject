@@ -19,7 +19,7 @@ def register_user_view(request):
             user = authenticate(request, username=form.cleaned_data.get("username"), password=form.cleaned_data.get("password1"))
             if user is not None:
                 login(request, user)
-                return redirect("users/success/" + str(user.pk))
+                return redirect("created_user", id=str(user.pk))
             else:
                 return render(request, "register.html", {"form": form})
     
@@ -28,3 +28,4 @@ def register_user_view(request):
 # def product_details_view(request, id):
 #     product = get_object_or_404(Product, pk=id)
 #     return render(request, "product_details.html", {"product": product})
+#Qwerty4321
