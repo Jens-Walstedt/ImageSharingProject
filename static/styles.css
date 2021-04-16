@@ -41,20 +41,22 @@ body {
 
 .images-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: top;
 }
 
 .image-container {
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: orange;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     transition: all 200ms ease;
     cursor: pointer;
+    margin: 8px 8px 8px 8px;
 }
 
 .image-container:hover {
@@ -64,9 +66,14 @@ body {
 .image {
     max-width: 50vw;
     border-radius: 10px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: 3px;
 }
 
 .image-title {
     text-align: center;
-    font-weight: 400;
+    margin-top: auto;
+    font-weight: 540;
+    font-family: Verdana;
 }
