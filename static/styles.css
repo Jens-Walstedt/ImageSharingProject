@@ -38,3 +38,35 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
+.images-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.image {
+    max-width: 50vw;
+    border-radius: 10px;
+}
+
+.image-title {
+    text-align: center;
+    font-weight: 400;
+}
