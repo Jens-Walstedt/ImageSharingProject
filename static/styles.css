@@ -44,7 +44,7 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: top;
+    align-items: auto;
 }
 
 .image-container {
@@ -65,15 +65,19 @@ body {
 
 .image {
     max-width: 50vw;
+    max-block-size: 200px;
     border-radius: 10px;
     margin-right: 3px;
     margin-left: 3px;
     margin-top: 3px;
+    width: 300px;
+    height: 250px;
+    
 }
 
 .image-title {
     text-align: center;
     margin-top: auto;
-    font-weight: 540;
+    font-weight: 500;
     font-family: Verdana;
 }
