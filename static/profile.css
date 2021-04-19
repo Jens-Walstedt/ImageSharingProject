@@ -1,0 +1,47 @@
+h1 {
+    display: block;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+}
+
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+}
+
+.image-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: orange;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px rgba(58, 49, 49, 0.25);
+    transition: all 200ms ease;
+    cursor: pointer;
+    margin: 8px 8px 8px 8px;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.image{
+    max-width: 50vw;
+    border-radius: 10px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.image-title {
+    text-align: center;
+    margin-top: auto;
+    font-weight: 540;
+    font-family: Verdana;
+}
+

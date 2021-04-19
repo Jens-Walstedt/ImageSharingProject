@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "profile.css" %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="profile">  
+    <h1>Profile</h1>
+        {% for image in images reversed %}
+         <div class="image-container">
+        <img class="image" src="{{ image.file.url }}" alt="{{ image.title }}" />
+        <p class="image-title">{{image.title}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
