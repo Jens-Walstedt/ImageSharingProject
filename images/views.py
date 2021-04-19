@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import ImageForm
 from .models import Image
 
+def edit_image_view(request):
+    
+    return render(request, "images/edit_image.html")
 
 def images_list_view(request):
     images = Image.objects.all()
