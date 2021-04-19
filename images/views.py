@@ -14,6 +14,9 @@ def image_upload_view(request):
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            #logic add imageitem
             return redirect("images_list")
+
+            
 
     return render(request, "images/image_upload.html", {"form": form})

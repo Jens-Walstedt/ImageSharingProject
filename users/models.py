@@ -13,5 +13,5 @@ class ImageItem(models.Model):
     userProfileId = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     imageId = models.ForeignKey(Image, on_delete=models.CASCADE)
     imageOwner = models.BooleanField(default=False)
-
+    
    

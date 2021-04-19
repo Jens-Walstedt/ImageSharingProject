@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .forms import UserForm
+from images.models import Image
 
 
 def created_user_view(request, id):
@@ -24,6 +25,12 @@ def register_user_view(request):
                 return render(request, "register.html", {"form": form})
     
     return render(request, "register.html", {"form": form})
+
+
+def profile_view(request):
+    images = Image.objects.all()
+    return render(request, "profile.html", {"images": images})
+
 
 # def product_details_view(request, id):
 #     product = get_object_or_404(Product, pk=id)
