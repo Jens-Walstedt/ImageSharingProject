@@ -6,7 +6,9 @@
     {% for image in images %}
 
     <div class="image-container">
+        <a href="detail/{{ image.id }}/">
         <img class="image" src="{{ image.file.url }}" alt="{{ image.title }}" />
+        </a>
         <p class="image-title">{{image.title}}</p>
     </div>
 
