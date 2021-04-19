@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ImageForm
 from .models import Image
 
@@ -20,3 +20,8 @@ def image_upload_view(request):
             return redirect("images_list")
 
     return render(request, "images/image_upload.html", {"form": form})
+
+
+def image_detail_view(request, id):
+    image = get_object_or_404(Image, pk=id)
+    return render(request, "images/image_detail.html", {"image": image})
