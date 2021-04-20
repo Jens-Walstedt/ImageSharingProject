@@ -20,6 +20,7 @@ def register_user_view(request):
             user = authenticate(request, username=form.cleaned_data.get("username"), password=form.cleaned_data.get("password1"))
             if user is not None:
                 login(request, user)
+                #UserProfile(user=user)
                 return redirect("created_user", id=str(user.pk))
             else:
                 return render(request, "register.html", {"form": form})
