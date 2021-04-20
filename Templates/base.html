@@ -16,26 +16,21 @@
         <nav class="nav">
             <ol>
                 <li><a href="/">Home</a></li>
-                <li><a href="{% url 'register'%}">Register</a></li>
+                
                 <li><a href="{% url 'images_list'%}">Browse</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 <div class="dropdown" style="visibility: visible;">
                     <button class="dropbtn">User<i class="fa fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a href="{&url 'edit_image'&}">Edit</a>
+                        <a href="{%url 'profile'%}">Profile</a>
+                        <a href="{%url 'edit_image'%}">Edit</a>
                         <a href="{%url 'image_upload'%}">Upload</a>
                     </div>
                 </div>
                 {% else %}
+                <li><a href="{% url 'register'%}">Register</a></li>
                 <li><a href="{% url 'login' %}">Login</a></li>
-                <div class="dropdown" style="visibility: hidden;">
-                    <button class="dropbtn">User<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content">
-                        <a href="{&url 'edit_image'&}">Edit</a>
-                        <a href="{%url 'image_upload'%}">Upload</a>
-                    </div>
-                </div>
                 {% endif %}
                 <form name=searchForm method="GET" action="" class="Searchbar">
                     <li><input type="search" title="Search" placeholder="Search"></input>
