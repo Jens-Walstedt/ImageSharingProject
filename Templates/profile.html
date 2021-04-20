@@ -10,12 +10,22 @@
 
     <div class="profile">  
     <h1>Profile</h1>
-        {% for image in images reversed %}
+        <div class="images-container">
+        {% for image in ownedimages reversed %}
             <div class="image-container">
             <img class="image" src="{{ image.file.url }}" alt="{{ image.title }}" />
             <p class="image-title">{{image.title}}</p>
             </div>
         {% endfor %}
+        </div>
+         <div class="images-container">
+         {% for image in savedimages reversed %}
+            <div class="image-container">
+            <img class="image" src="{{ image.file.url }}" alt="{{ image.title }}" />
+            <p class="image-title">{{image.title}}</p>
+            </div>
+        {% endfor %}
+         </div>
     </div>
 
 {% endblock %}

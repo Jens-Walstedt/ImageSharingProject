@@ -31,11 +31,16 @@ def register_user_view(request):
 def profile_view(request):
     current_user = request.user
     ImageItems = ImageItem.objects.filter(userId=current_user)
-    images = []
+    ownedImages = []
+    savedImages = []
     for item in ImageItems:
-        images.append(item.imageId)
+        if item.imageOwner:
+            ownedImages.append(item.imageId)
+        else:
+            savedImages.append(item.imageId)
+
        
-    return render(request, "profile.html", {"images": images})
+    return render(request, "profile.html", {"ownedimages": ownedImages, "savedimages:": savedImages})
 
 
 # def product_details_view(request, id):
