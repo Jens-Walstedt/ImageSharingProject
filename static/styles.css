@@ -39,6 +39,10 @@
     overflow: hidden;
 }
 
+.Searchbar {
+    float: left;
+}
+
 .dropdown .dropbtn {
     font-size: 16px;
     border: none;
