@@ -8,17 +8,25 @@
 
     <img class="image" src="{{image.file.url}}" alt="image{{image.title}}" />
 
-    <p>{{ image.description }}</p>
+    <p>Description: {{ image.description }}</p>
     <p>Uploaded: {{ image.upload_date }}</p>
     <p>User: {{ userinfo.username }}</p>
-    {% if error %}
+
+
+    {% if savedImage %}
+        <a href="/delete_image/{{image.id}}">Delete</a>
+    {% else %}
+        <a href="/save_image/{{image.id}}">Save</a>
+    {% endif %}
+    <!-- {% if error %}
     <p>{{error}}</p>
     {%endif%}
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Save">  
-    </form>
+    </form> -->
+
     <hr>
 
 </div>

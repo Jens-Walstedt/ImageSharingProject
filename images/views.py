@@ -3,6 +3,7 @@ from .forms import ImageForm
 from .models import Image
 from users.models import ImageItem, ImageItemManager
 from users.forms import ImageItemForm
+from django.contrib.auth.decorators import login_required
 
 def edit_image_view(request):
     
@@ -28,19 +29,38 @@ def image_upload_view(request):
 
     return render(request, "images/image_upload.html", {"form": form})
 
-
+@login_required
 def image_detail_view(request, id):
     image = get_object_or_404(Image, pk=id)
-    imageItem = ImageItem.objects.get(imageId=id)
-    UserInfo = imageItem.userId
-    form = ImageForm()
-    if request.method == "POST":
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            ImageItem.objects.create_ImageItem(userId=request.user,
-                imageId=image,
-                imageOwner=False)
-            return redirect("profile")
-        else:
-            return render(request, "images/image_detail.html", {"error": "This user already has this image", "image": image, "userinfo": UserInfo})
-    return render(request, "images/image_detail.html", {"image": image, "userinfo": UserInfo})
+    savedImage = ImageItem.objects.get(imageId=id)
+    UserInfo = savedImage.userId
+    # form = ImageForm()
+    # if request.method == "POST":
+    #     form = ImageForm(request.POST, request.FILES)
+    #     if form.is_valid():
+    #         ImageItem.objects.create_ImageItem(userId=request.user,
+    #             imageId=image,
+    #             imageOwner=False)
+    #         return redirect("profile")
+    #     else:
+    #         return render(request, "images/image_detail.html", {"error": "This user already has this image", "image": image, "userinfo": UserInfo})
+    return render(request, "images/image_detail.html", {"image": image, "userinfo": UserInfo, "savedImage": savedImage})
+
+@login_required
+def save_image(request, id):
+    id = request.GET.get("id")
+    image = get_object_or_404(Image, pk=id)
+    savedImage = ImageItem.objects.filter(imageId=image, userId=request.user)
+    if not savedImage.exists():
+        savedImage = ImageItem(userId=request.user, imageId=image)
+        savedImage.save()
+    return redirect("image_detail", id=id)
+
+@login_required
+def delete_image(request, id):
+    id = request.GET.get("id")
+    image = get_object_or_404(Image, pk=id)
+    savedImage = ImageItem.objects.filter(imageId=image, userId=request.user)
+    if savedImage.exists():
+        savedImage.delete()
+    return redirect("image_detail", id=id)
