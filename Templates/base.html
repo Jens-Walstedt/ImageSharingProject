@@ -4,33 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %} {%load static%}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %} {%load static%} {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'styles.css' %}"> {% block extrahead %}{% endblock %}
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{%static 'styles.css' %}">
-    {% block extrahead %}{% endblock %}
-    
     <title>Image Sharing</title>{% endblock %}
 </head>
 
 <body>
     {% block navbar%}
     <div class="NavDiv">
-    <nav class="nav">
-        <ol>
-            <li><a href="/">Home</a></li>
-            <li><a href="{% url 'register' %}">Register</a></li>
-            <li><a href="">Browse</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-            <li><input type="search" title="Search"></input>
-            </li>
-        </ol>
+        <nav class="nav">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'register'%}">Register</a></li>
+                <li><a href="{% url 'images_list'%}">Browse</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <div class="dropdown" style="visibility: visible;">
+                    <button class="dropbtn">User<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="{&url 'edit_image'&}">Edit</a>
+                        <a href="{%url 'image_upload'%}">Upload</a>
+                    </div>
+                </div>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <div class="dropdown" style="visibility: hidden;">
+                    <button class="dropbtn">User<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="{&url 'edit_image'&}">Edit</a>
+                        <a href="{%url 'image_upload'%}">Upload</a>
+                    </div>
+                </div>
+                {% endif %}
+                <form name=searchForm method="GET" action="">
+                    <li><input type="search" title="Search" placeholder="Search"></input>
+                    </li>
+                </form>
+            </ol>
 
-    </nav>
+        </nav>
     </div>
     {% endblock %} {% block content%}
     <p>This is content</p> {% endblock%}
