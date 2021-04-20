@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .forms import UserForm
 from images.models import Image
+from .models import ImageItem
 
 
 def created_user_view(request, id):
@@ -28,7 +29,12 @@ def register_user_view(request):
 
 
 def profile_view(request):
-    images = Image.objects.all()
+    current_user = request.user
+    ImageItems = ImageItem.objects.filter(userId=current_user)
+    images = []
+    for item in ImageItems:
+        images.append(item.imageId)
+       
     return render(request, "profile.html", {"images": images})
 
 
