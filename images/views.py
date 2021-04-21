@@ -5,10 +5,6 @@ from users.models import ImageItem, ImageItemManager
 from users.forms import ImageItemForm
 from django.contrib.auth.decorators import login_required
 
-def edit_image_view(request):
-    
-    return render(request, "images/edit_image.html")
-
 def images_list_view(request):
     images = Image.objects.all()
     return render(request, "images/images_list.html", {"images": images})
@@ -74,3 +70,9 @@ def remove_image(request, id):
     if savedImage.exists():
         savedImage.delete()
     return redirect("image_detail", id=id)
+
+@login_required
+def edit_image_view(request, id):
+    #image = get_object_or_404(Image, pk=id)
+    #savedImage = ImageItem.objects.filter(imageId=image, userId=request.user, imageOwner=True)
+    return render(request, "images/edit_image.html")
