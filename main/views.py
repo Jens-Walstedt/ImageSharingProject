@@ -4,7 +4,6 @@ from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
-
 def index(request):
     return render(request,'base.html')
 

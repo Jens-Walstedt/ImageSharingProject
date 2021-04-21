@@ -21,6 +21,6 @@ class ImageItem(models.Model):
     imageId = models.ForeignKey(Image, on_delete=models.CASCADE)
     imageOwner = models.BooleanField(default=False)
 
-    objects = ImageItemManager()
+    #objects = ImageItemManager()
     
    

@@ -6,6 +6,7 @@ from .forms import UserForm
 from images.models import Image
 from .models import ImageItem
 
+print("hello")
 
 def created_user_view(request, id):
     user = get_object_or_404(User, pk=id)
@@ -34,14 +35,12 @@ def profile_view(request):
     ownedImages = []
     savedImages = []
     for item in ImageItems:
-        if item.imageOwner:
+        if item.imageOwner==True:
             ownedImages.append(item.imageId)
-        else:
+        elif item.imageOwner==False:
             savedImages.append(item.imageId)
-
-       
-    return render(request, "profile.html", {"ownedimages": ownedImages, "savedimages:": savedImages})
-
+   
+    return render(request, "profile.html", {"user":current_user,  "ownedimages":ownedImages, "savedimages":savedImages})
 
 # def product_details_view(request, id):
 #     product = get_object_or_404(Product, pk=id)

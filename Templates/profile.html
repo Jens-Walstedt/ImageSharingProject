@@ -9,8 +9,9 @@
 {% block content %}
 
     <div class="profile">  
-    <h1>Profile</h1>
+    <h1>{{ user.username }}</h1>
         <div class="images-container">
+        <a>users images<a>
         {% for image in ownedimages reversed %}
             <div class="image-container">
             <img class="image" src="{{ image.file.url }}" alt="{{ image.title }}" />
@@ -19,6 +20,7 @@
         {% endfor %}
         </div>
          <div class="images-container">
+         <a>saved images<a>
          {% for image in savedimages reversed %}
             <div class="image-container">
             <img class="image" src="{{ image.file.url }}" alt="{{ image.title }}" />

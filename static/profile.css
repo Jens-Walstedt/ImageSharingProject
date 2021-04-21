@@ -4,6 +4,7 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: top;
+    width: 100%;
 }
 
 .profile {
@@ -19,6 +20,11 @@ h1 {
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+}
+
+.image-container a{
+    width:100%
 }
 
 .image-container {
