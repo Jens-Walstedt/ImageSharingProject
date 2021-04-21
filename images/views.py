@@ -32,8 +32,17 @@ def image_upload_view(request):
 @login_required
 def image_detail_view(request, id):
     image = get_object_or_404(Image, pk=id)
-    savedImage = ImageItem.objects.get(imageId=id)
-    UserInfo = savedImage.userId
+    UserInfo = ImageItem.objects.get(imageId=image, imageOwner=True).userId
+    savedImage = None
+    
+    #if owner
+    try:
+        savedImage = ImageItem.objects.get(imageId=id, userId=request.user)
+    except:
+        pass
+
+    return render(request, "images/image_detail.html", {"image": image, "userinfo": UserInfo, "savedImage": savedImage})
+    
     # form = ImageForm()
     # if request.method == "POST":
     #     form = ImageForm(request.POST, request.FILES)
@@ -44,23 +53,24 @@ def image_detail_view(request, id):
     #         return redirect("profile")
     #     else:
     #         return render(request, "images/image_detail.html", {"error": "This user already has this image", "image": image, "userinfo": UserInfo})
-    return render(request, "images/image_detail.html", {"image": image, "userinfo": UserInfo, "savedImage": savedImage})
+
+        
 
 @login_required
 def save_image(request, id):
-    id = request.GET.get("id")
+    #id = request.GET.get("id")
     image = get_object_or_404(Image, pk=id)
     savedImage = ImageItem.objects.filter(imageId=image, userId=request.user)
     if not savedImage.exists():
-        savedImage = ImageItem(userId=request.user, imageId=image)
+        savedImage = ImageItem(userId=request.user, imageId=image, imageOwner=False)
         savedImage.save()
     return redirect("image_detail", id=id)
 
 @login_required
-def delete_image(request, id):
-    id = request.GET.get("id")
+def remove_image(request, id):
+    #id = request.GET.get("id")
     image = get_object_or_404(Image, pk=id)
-    savedImage = ImageItem.objects.filter(imageId=image, userId=request.user)
+    savedImage = ImageItem.objects.filter(imageId=id, userId=request.user)
     if savedImage.exists():
         savedImage.delete()
     return redirect("image_detail", id=id)

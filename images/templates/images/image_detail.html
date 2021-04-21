@@ -13,10 +13,12 @@
     <p>User: {{ userinfo.username }}</p>
 
 
-    {% if savedImage %}
-        <a href="/delete_image/{{image.id}}">Delete</a>
+    {% if savedImage and savedImage.imageOwner %}
+        <a href="/images/edit_image/{{image.id}}">edit</a>
+    {% elif savedImage %}
+        <a href="/images/remove_image/{{image.id}}">remove</a>
     {% else %}
-        <a href="/save_image/{{image.id}}">Save</a>
+        <a href="/images/save_image/{{image.id}}">save</a>
     {% endif %}
     <!-- {% if error %}
     <p>{{error}}</p>
